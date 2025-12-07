@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <h1>EventBoard</h1>
+      </div>
+      <p class="tagline">Minimal event tracking</p>
+
+      <nav class="nav-links">
+        <button class="nav-link active" data-section="events">Events</button>
+        <button class="nav-link" data-section="calendar">Calendar</button>
+        <button class="nav-link" data-section="settings">Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Today</p>
+        <p id="todayText"></p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h2 id="pageTitle">Events</h2>
+          <span class="subtitle" id="pageSubtitle">Manage all your events in one place</span>
+        </div>
+        <button id="themeToggle" class="icon-btn" title="Toggle theme">◑</button>
+      </header>
+
+      <!-- Stats -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <span class="label">Total</span>
+          <h3 id="totalEvents">0</h3>
+        </div>
+        <div class="kpi-card">
+          <span class="label">Upcoming</span>
+          <h3 id="upcomingEvents">0</h3>
+        </div>
+        <div class="kpi-card">
+          <span class="label">Completed</span>
+          <h3 id="completedEvents">0</h3>
+        </div>
+      </section>
+
+      <!-- Events layout -->
+      <section class="content-grid" id="eventsSection">
+        <!-- Add event -->
+        <div class="panel">
+          <h3>Add Event</h3>
+          <form id="eventForm" class="event-form">
+            <input id="title" type="text" placeholder="Event title" required />
+            <div class="row">
+              <input id="date" type="date" required />
+              <input id="time" type="time" required />
+            </div>
+            <select id="category">
+              <option value="Workshop">Workshop</option>
+              <option value="Meeting">Meeting</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Conference">Conference</option>
+              <option value="Other">Other</option>
+            </select>
+            <textarea id="description" placeholder="Description (optional)"></textarea>
+            <button type="submit" class="primary-btn">Add Event</button>
+          </form>
+        </div>
+
+        <!-- Events list -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>My Events</h3>
+            <input id="searchInput" type="text" placeholder="Search by title or category..." />
+          </div>
+          <div id="eventsContainer" class="events-container"></div>
+        </div>
+      </section>
+
+      <!-- Placeholder sections -->
+      <section class="panel placeholder" id="calendarSection">
+        <h3>Calendar (Coming Soon)</h3>
+        <p>Later you can replace this with a calendar view of your events.</p>
+      </section>
+
+      <section class="panel placeholder" id="settingsSection">
+        <h3>Settings (Coming Soon)</h3>
+        <p>Theme, profile and notification settings can go here.</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
